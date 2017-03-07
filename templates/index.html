@@ -30,9 +30,9 @@
 <div class="entries-area">
     <h2>留言紀錄</h2>
     {% for greeting in greeting_list: %}
-    <h3>{{greeting.name}}的留言({{greeting.create_at}})</h3>
+    <h3>{{greeting.name}}的留言({{greeting.create_at|datetime_fmt}})</h3>
     <p>
-        {{greeting.comment}}
+        {{greeting.comment|nl2br}}
     </p>
     {% endfor %}
 </div>

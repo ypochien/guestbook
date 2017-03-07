@@ -1,5 +1,6 @@
 import shelve
 
+import datetime
 from flask import Flask, request, render_template, redirect, escape, Markup
 
 application = Flask(__name__)
@@ -43,11 +44,30 @@ def load_data():
     return greeting_list
 
 
+@application.template_filter('nl2br')
+def nl2br_filter(s):
+    return escape(s).replace('\n', Markup('<BR>'))
+
+
+@application.template_filter('datetime_fmt')
+def datetime_fmt_filter(dt):
+    return dt.strftime('%Y/%m/%d %H:%M:%S')
+
+
 @application.route('/')
 def index():
     greeting_list = load_data()
-    print(greeting_list)
     return render_template('index.html', greeting_list=greeting_list)
+
+
+@application.route('/post', methods=['post'])
+def post():
+    name = request.form.get('name')
+    comment = request.form.get('comment')
+    create_at = datetime.datetime.now()
+    save_data(name, comment, create_at)
+
+    return redirect('/')
 
 
 if __name__ == '__main__':
