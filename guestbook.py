@@ -1,5 +1,9 @@
 import shelve
 
+from flask import Flask, request, render_template, redirect, escape, Markup
+
+application = Flask(__name__)
+
 DATA_FILE = 'guestbook.dat'
 
 
@@ -37,3 +41,12 @@ def load_data():
     greeting_list = database.get('greeting_list', [])
     database.close()
     return greeting_list
+
+
+@application.route('/')
+def index():
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    application.run('127.0.0.1', 0x9487, debug=True)
