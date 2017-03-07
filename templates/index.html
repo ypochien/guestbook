@@ -23,20 +23,18 @@
             </td>
         </tr>
     </table>
-    <p><button type="submit">提交</button></p>
+    <p>
+        <button type="submit">提交</button>
+    </p>
 </form>
 <div class="entries-area">
     <h2>留言紀錄</h2>
-    <h3> 遊客 的留言(2017/03/07 23:33:23)</h3>
+    {% for greeting in greeting_list: %}
+    <h3>{{greeting.name}}的留言({{greeting.create_at}})</h3>
     <p>
-        留言內容<BR>
-        容內言留
+        {{greeting.comment}}
     </p>
-    <h3> 遊客 的留言(2017/03/07 22:21:12)</h3>
-    <p>
-        留言內容<BR>
-        容內言留
-    </p>
+    {% endfor %}
 </div>
 
 </body>

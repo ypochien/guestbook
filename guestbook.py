@@ -45,8 +45,10 @@ def load_data():
 
 @application.route('/')
 def index():
-    return render_template('index.html')
+    greeting_list = load_data()
+    print(greeting_list)
+    return render_template('index.html', greeting_list=greeting_list)
 
 
 if __name__ == '__main__':
-    application.run('127.0.0.1', 0x9487, debug=True)
+    application.run('127.0.0.1', 9487, debug=True)
