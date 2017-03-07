@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+</head>
+<body>
+<h1>留言板</h1>
+<form action="/post" method="post">
+    <p>請留言</p>
+    <table>
+        <tr>
+            <th>名字</th>
+            <td>
+                <input type="text" size="20" name="name">
+            </td>
+        </tr>
+        <tr>
+            <th>留言</th>
+            <td>
+                <textarea rows="5" cols="40" name="comment"></textarea>
+            </td>
+        </tr>
+    </table>
+    <p><button type="submit">提交</button></p>
+</form>
+<div>
+    <h2>留言紀錄</h2>
+    <h3> 遊客 的留言(2017/03/07 23:33:23)</h3>
+    <p>
+        留言內容<BR>
+        容內言留
+    </p>
+    <h3> 遊客 的留言(2017/03/07 22:21:12)</h3>
+    <p>
+        留言內容<BR>
+        容內言留
+    </p>
+</div>
+
+</body>
+</html>
